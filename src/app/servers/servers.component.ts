@@ -1,4 +1,16 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild, ViewChildren,
+  ViewEncapsulation
+} from '@angular/core';
+import {Observable} from "rxjs";
 
 @Component({
   // selector: '[app-servers]',
@@ -8,11 +20,24 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./servers.component.css'],
   // encapsulation: ViewEncapsulation.None,
 })
-export class ServersComponent implements OnInit {
+export class ServersComponent implements OnInit, OnChanges, AfterViewChecked {
+  @Input('testInput') data: Observable<any>;
+  @ViewChildren('randomNumber') randomNumber: ElementRef;
 
-  constructor() { }
+  constructor() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+  }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+  }
+
+  ngAfterViewChecked(): void {
+    this.randomNumber['last'] && this.randomNumber['last']['nativeElement'].scrollIntoView();
   }
 
 }
