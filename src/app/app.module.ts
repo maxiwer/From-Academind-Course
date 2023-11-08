@@ -6,14 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { TestComponent } from './test/test.component';
+import {ChildComponent, LoremComponent} from './test/lorem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    TestComponent
+    LoremComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
-<h3>Lorem ipsum dolor.: </h3>
-<ng-content>
-</ng-content>
+<p *ngFor="let d of data | async">{{ d }}</p>
+<div *ngIf="isContentVisible$" class="wrapper">
+<ng-content></ng-content>
+</div>
+<button (click)="data = null">nullify</button>
