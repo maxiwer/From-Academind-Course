@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   AfterViewChecked, AfterViewInit,
   Component, DoCheck,
-  ElementRef,
+  ElementRef, HostBinding,
   Input,
   OnChanges,
   OnInit,
@@ -17,33 +17,13 @@ import {delay} from "rxjs/operators";
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
 })
-export class ServersComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterContentInit {
+export class ServersComponent {
   @Input('testInput') data;
+  @Input('isPink') isPink = false;
+
+  @HostBinding('class.pink') get color() { return this.isPink };
+
   @ViewChildren('randomNumber') randomNumber: ElementRef;
-  isContentVisible$ = of(true).pipe(delay(5000));
-
-  constructor() {
-    console.log(`~constructor`);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(`~on_changes: `, changes['data']);
-  }
-
-  ngOnInit() {
-    console.log(`~on_init`);
-  }
-
-  ngDoCheck(): void {
-    console.log(`~do_check`);
-  }
-
-  ngAfterViewInit(): void {
-    console.log(`~after_view_init`);
-  }
-
-  ngAfterContentInit(): void {
-    console.log(`~after_content_init`);
-  }
+  isContentVisible$ = of(true).pipe(delay(5000))
 
 }

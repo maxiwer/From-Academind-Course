@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import {ChildComponent, LoremComponent} from './test/lorem.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import {LoremComponent} from "./test/lorem.component";
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import {ChildComponent, LoremComponent} from './test/lorem.component';
     ServerComponent,
     ServersComponent,
     LoremComponent,
-    ChildComponent
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
