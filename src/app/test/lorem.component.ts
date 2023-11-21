@@ -5,7 +5,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
-  ElementRef, inject, ViewChild
+  ElementRef, inject, TemplateRef, ViewChild, ViewContainerRef
 } from '@angular/core';
 import {of} from "rxjs";
 import {delay} from "rxjs/operators";
@@ -21,10 +21,17 @@ export class LoremComponent implements AfterViewInit, AfterViewChecked {
   form = this.fb.group({
     search: ['', Validators.required],
   });
+  @ViewChild("container") container: ViewContainerRef;
+  get ()whichLorem = 'first';
+  @ViewChild(whichLorem) teml: TemplateRef<any>;
 
   ngAfterViewChecked(): void {
   }
 
   ngAfterViewInit(): void {
+  }
+
+  embed(fourth: string) {
+    this.container.createEmbeddedView(this.teml);
   }
 }

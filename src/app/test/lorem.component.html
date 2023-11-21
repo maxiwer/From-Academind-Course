@@ -1,22 +1,37 @@
+<nav>
+  <button (click)="embed('first')">Lorem 0</button>
+  <button (click)="embed('second')">Lorem 1</button>
+  <button (click)="embed('third')">Lorem 2</button>
+  <button (click)="embed('fourth')">Lorem 3</button>
+</nav>
+
 <form [formGroup]="form">
-  <fieldset>
-    <label for="lorem">Lorem 0</label>
-    <input [formControl]="form.controls.search" id="lorem" type="search" value="">
-  </fieldset>
-  <fieldset>
-    <label for="lorem1">Lorem 1</label>
-    <input id="lorem1" type="checkbox" value="">
-  </fieldset>
-  <fieldset>
-    <label for="lorem2">Lorem 2</label>
-    <input id="lorem2" type="date" value="">
-  </fieldset>
-  <ng-container *appUnless="true">
+  <ng-container #container></ng-container>
+
+  <ng-template #first>
+    <fieldset>
+      <label for="lorem">Lorem 0</label>
+      <input [formControl]="form.controls.search" id="lorem" type="search" value="">
+    </fieldset>
+  </ng-template>
+  <ng-template #second>
+    <fieldset>
+      <label for="lorem1">Lorem 1</label>
+      <input id="lorem1" type="checkbox" value="">
+    </fieldset>
+  </ng-template>
+  <ng-template #third>
+    <fieldset>
+      <label for="lorem2">Lorem 2</label>
+      <input id="lorem2" type="date" value="">
+    </fieldset>
+  </ng-template>
+  <ng-template #fourth>
     <fieldset>
       <label for="lorem3">Lorem 3</label>
       <input id="lorem3" type="range" value="">
     </fieldset>
-  </ng-container>
+  </ng-template>
 </form>
 
 <app-servers [isPink]="true"></app-servers>
