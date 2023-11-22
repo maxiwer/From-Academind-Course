@@ -21,17 +21,10 @@ export class LoremComponent implements AfterViewInit, AfterViewChecked {
   form = this.fb.group({
     search: ['', Validators.required],
   });
-  @ViewChild("container") container: ViewContainerRef;
-  get ()whichLorem = 'first';
-  @ViewChild(whichLorem) teml: TemplateRef<any>;
 
   ngAfterViewChecked(): void {
   }
 
   ngAfterViewInit(): void {
-  }
-
-  embed(fourth: string) {
-    this.container.createEmbeddedView(this.teml);
   }
 }
