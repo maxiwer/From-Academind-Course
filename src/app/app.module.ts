@@ -9,6 +9,7 @@ import { ServersComponent } from './servers/servers.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import {LoremComponent} from "./test/lorem.component";
 import { UnlessDirective } from './directives/unless.directive';
+import {MockService} from "./services/mock.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { UnlessDirective } from './directives/unless.directive';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [MockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

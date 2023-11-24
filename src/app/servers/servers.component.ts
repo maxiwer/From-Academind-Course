@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   AfterViewChecked, AfterViewInit,
   Component, DoCheck,
-  ElementRef, HostBinding,
+  ElementRef, HostBinding, inject,
   Input,
   OnChanges,
   OnInit,
@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {delay} from "rxjs/operators";
+import {MockService} from "../services/mock.service";
 
 @Component({
   selector: 'app-servers',
@@ -18,6 +19,8 @@ import {delay} from "rxjs/operators";
   styleUrls: ['./servers.component.css'],
 })
 export class ServersComponent {
+  mockService = inject(MockService);
+
   @Input('testInput') data;
   @Input('isPink') isPink = false;
 
