@@ -1,7 +1,5 @@
-<p *ngFor="let d of data | async">{{ d }}</p>
-<div *ngIf="isContentVisible$" class="wrapper">
-<ng-content></ng-content>
-</div>
-<button class="pink" (click)="data = null">nullify</button>
+<ul>
+  <li [routerLink]="'server/' + i" *ngFor="let i of items$ | async">{{ i }}</li>
+</ul>
 
-<h1>{{ mockService.lorem | async }}</h1>
+<router-outlet></router-outlet>

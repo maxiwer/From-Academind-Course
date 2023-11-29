@@ -21,12 +21,7 @@ import {MockService} from "../services/mock.service";
 export class ServersComponent {
   mockService = inject(MockService);
 
-  @Input('testInput') data;
-  @Input('isPink') isPink = false;
-
-  @HostBinding('class.pink') get color() { return this.isPink };
-
-  @ViewChildren('randomNumber') randomNumber: ElementRef;
   isContentVisible$ = of(true).pipe(delay(5000))
+  items$: any = this.mockService.simulateHttp([ 1, 2, 3, 4, 5 ], 1500);
 
 }

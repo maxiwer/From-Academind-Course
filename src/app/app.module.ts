@@ -10,6 +10,24 @@ import { HighlightDirective } from './directives/highlight.directive';
 import {LoremComponent} from "./test/lorem.component";
 import { UnlessDirective } from './directives/unless.directive';
 import {MockService} from "./services/mock.service";
+import {RouterLink, RouterModule, Routes} from "@angular/router";
+
+const routes: Routes = [
+  {
+    path: 'lorem',
+    component: LoremComponent,
+  },
+  {
+    path: 'servers',
+    component: ServersComponent,
+    children: [
+      {
+        path: 'server/:id',
+        component: ServerComponent
+      }
+    ]
+  },
+];
 
 @NgModule({
   declarations: [
@@ -24,6 +42,7 @@ import {MockService} from "./services/mock.service";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [MockService],
   bootstrap: [AppComponent]
