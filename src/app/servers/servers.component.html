@@ -2,4 +2,10 @@
   <li [routerLink]="'server/' + i" *ngFor="let i of items$ | async">{{ i }}</li>
 </ul>
 
-<router-outlet></router-outlet>
+<div *ngIf="true" class="wwerrqwe">
+  <input #ref2 type="text" [(ngModel)]="secondExample" />
+    <span>Value: {{ ref2?.value }}</span>
+</div>
+
+<app-server [loremInput]="lorem" ></app-server>
+<button (click)="loremMethod()">change child's input</button>
