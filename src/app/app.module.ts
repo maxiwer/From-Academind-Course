@@ -11,6 +11,7 @@ import {LoremComponent} from "./test/lorem.component";
 import { UnlessDirective } from './directives/unless.directive';
 import {MockService} from "./services/mock.service";
 import {RouterLink, RouterModule, Routes} from "@angular/router";
+import {LoremGuard} from "./guards/lorem.guard";
 
 const routes: Routes = [
   {
@@ -20,9 +21,11 @@ const routes: Routes = [
   {
     path: 'servers',
     component: ServersComponent,
+    canActivate: [LoremGuard],
+    canActivateChild: [LoremGuard],
     children: [
       {
-        path: 'server/:id',
+        path: 'server',
         component: ServerComponent
       }
     ]

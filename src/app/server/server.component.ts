@@ -8,7 +8,6 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServerComponent implements OnChanges {
-  @Input() loremInput: { order: number, label: string } = { label: '', order: 0 };
   private router = inject(Router);
   mockService = inject(MockService);
 
